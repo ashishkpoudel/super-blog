@@ -2,7 +2,7 @@
 
 namespace src\Posts\Http\Handlers;
 
-use src\Core\Http\Response\JsonResponse;
+use src\Core\Http\Response\CreatedResponse;
 use src\Posts\ValueObjects\PostId;
 use src\Core\Handlers\BaseHandler;
 use src\Posts\Commands\CreatePost;
@@ -16,18 +16,20 @@ final class CreatePostHandler extends BaseHandler
     public function __invoke(PostRequest $request)
     {
         $postId = PostId::new();
-        $userId = UserId::new();
+        $userId = UserId::fromString($request->user()->id);
 
-        $this->commandBus()->execute(app(CreatePost::class, [
-            'postId' => $postId,
-            'userId' => $userId,
-            'title' => $request->input('title'),
-            'body' => $request->input('body'),
-        ]));
+        $this->commandBus()->execute(
+            app(CreatePost::class, [
+                'postId' => $postId,
+                'userId' => $userId,
+                'title' => $request->input('title'),
+                'body' => $request->input('body'),
+            ])
+        );
 
         $post = $this->queryBus()->query(new GetPost($postId));
 
-        return new JsonResponse(
+        return new CreatedResponse(
             PostResource::make($post)
         );
     }
