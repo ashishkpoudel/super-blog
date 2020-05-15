@@ -2,9 +2,10 @@
 
 namespace src\Posts\Queries;
 
+use src\Core\MessageBus\Interfaces\QueryInterface;
 use src\Core\Support\QueryOptions;
 
-class GetPaginatedPost
+class GetPaginatedPost implements QueryInterface
 {
     public QueryOptions $query;
 

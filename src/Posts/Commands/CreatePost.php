@@ -2,10 +2,11 @@
 
 namespace src\Posts\Commands;
 
+use src\Core\MessageBus\Interfaces\CommandInterface;
 use src\Posts\ValueObjects\PostId;
 use src\Users\ValueObjects\UserId;
 
-class CreatePost
+class CreatePost implements CommandInterface
 {
     public PostId $postId;
     public UserId $userId;

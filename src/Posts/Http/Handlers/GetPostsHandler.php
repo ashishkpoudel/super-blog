@@ -13,7 +13,7 @@ final class GetPostsHandler extends BaseHandler
 {
     public function __invoke(Request $request)
     {
-        $posts = dispatch_now(new GetPaginatedPost(QueryOptions::fromRequest($request)));
+        $posts = $this->queryBus()->query(new GetPaginatedPost(QueryOptions::fromRequest($request)));
 
         return new JsonResponse(
             PostResource::collection($posts)

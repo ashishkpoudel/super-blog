@@ -18,14 +18,14 @@ final class CreatePostHandler extends BaseHandler
         $postId = PostId::new();
         $userId = UserId::new();
 
-        dispatch_now(app(CreatePost::class, [
+        $this->commandBus()->execute(app(CreatePost::class, [
             'postId' => $postId,
             'userId' => $userId,
             'title' => $request->input('title'),
             'body' => $request->input('body'),
         ]));
 
-        $post = dispatch_now(new GetPost($postId));
+        $post = $this->queryBus()->query(new GetPost($postId));
 
         return new JsonResponse(
             PostResource::make($post)
