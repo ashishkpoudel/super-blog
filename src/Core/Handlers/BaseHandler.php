@@ -4,9 +4,9 @@ namespace src\Core\Handlers;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Routing\Controller;
-use src\Core\MessageBus\CommandBus;
-use src\Core\MessageBus\EventBus;
-use src\Core\MessageBus\QueryBus;
+use src\Core\Bus\Command\CommandBus;
+use src\Core\Bus\Query\QueryBus;
+use src\Core\Bus\Event\EventBus;
 
 abstract class BaseHandler extends Controller
 {

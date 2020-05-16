@@ -2,7 +2,7 @@
 
 namespace src\Posts\Commands;
 
-use src\Core\MessageBus\Interfaces\CommandInterface;
+use src\Core\Bus\Command\CommandInterface;
 use src\Posts\ValueObjects\PostId;
 
 class DeletePost implements CommandInterface

@@ -1,6 +1,6 @@
 <?php
 
-namespace src\Core\MessageBus;
+namespace src\Core\Bus\Command;
 
 use Illuminate\Bus\Dispatcher;
 
@@ -14,10 +14,10 @@ class CommandBus
     }
 
     /**
-     * @param $command
+     * @param CommandInterface $command
      * @return mixed
      */
-    public function execute($command)
+    public function execute(CommandInterface $command)
     {
         return $this->dispatcher->dispatch($command);
     }

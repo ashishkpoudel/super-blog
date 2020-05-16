@@ -1,6 +1,6 @@
 <?php
 
-namespace src\Core\MessageBus;
+namespace src\Core\Bus\Event;
 
 use Illuminate\Events\Dispatcher;
 
@@ -14,10 +14,10 @@ class EventBus
     }
 
     /**
-     * @param $event
+     * @param EventInterface $event
      * @return mixed
      */
-    public function publish($event)
+    public function publish(EventInterface $event)
     {
         return $this->dispatcher->dispatch($event);
     }

@@ -1,9 +1,8 @@
 <?php
 
-namespace src\Core\MessageBus;
+namespace src\Core\Bus\Query;
 
 use Illuminate\Bus\Dispatcher;
-use src\Core\MessageBus\Interfaces\QueryInterface;
 
 class QueryBus
 {

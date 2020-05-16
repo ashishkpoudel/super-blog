@@ -2,7 +2,7 @@
 
 namespace src\Posts\Queries;
 
-use src\Core\MessageBus\Interfaces\QueryInterface;
+use src\Core\Bus\Query\QueryInterface;
 use src\Posts\ValueObjects\PostId;
 
 class GetPost implements QueryInterface
