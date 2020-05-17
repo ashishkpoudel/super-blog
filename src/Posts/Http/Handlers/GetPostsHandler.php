@@ -4,7 +4,7 @@ namespace src\Posts\Http\Handlers;
 
 use Illuminate\Http\Request;
 use src\Core\Handlers\BaseHandler;
-use src\Core\Http\Response\JsonResponse;
+use src\Core\Http\Response\OkResponse;
 use src\Core\Support\QueryOptions;
 use src\Posts\Http\Resources\PostResource;
 use src\Posts\Queries\GetPaginatedPost;
@@ -15,7 +15,7 @@ final class GetPostsHandler extends BaseHandler
     {
         $posts = $this->queryBus()->query(new GetPaginatedPost(QueryOptions::fromRequest($request)));
 
-        return new JsonResponse(
+        return new OkResponse(
             PostResource::collection($posts)
         );
     }
