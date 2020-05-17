@@ -18,15 +18,21 @@ use src\Posts\Queries\Handlers\GetPostHandler;
 
 class PostServiceProvider extends ServiceProvider
 {
+    private array $commands = [
+        CreatePost::class => CreatePostHandler::class,
+        UpdatePost::class => UpdatePostHandler::class,
+        DeletePost::class => DeletePostHandler::class
+    ];
+
+    private array $queries = [
+        GetPaginatedPost::class => GetPaginatedPostHandler::class,
+        GetPost::class => GetPostHandler::class
+    ];
+
     public function boot()
     {
-        Bus::map([
-            CreatePost::class => CreatePostHandler::class,
-            UpdatePost::class => UpdatePostHandler::class,
-            DeletePost::class => DeletePostHandler::class,
-            GetPaginatedPost::class => GetPaginatedPostHandler::class,
-            GetPost::class => GetPostHandler::class
-        ]);
+        Bus::map($this->commands);
+        Bus::map($this->queries);
 
         Route::prefix('api')->middleware('api')->group(base_path('src/Posts/Http/routes.php'));
     }

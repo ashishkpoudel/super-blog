@@ -16,8 +16,8 @@ class AuthService
 
     public function tryLogin(string $emailAddress, string $password): bool
     {
-        $user = User::query()->where('emailAddress', '=', $emailAddress);
-        if ($user->exists()) {
+        $user = User::query()->where('emailAddress', '=', $emailAddress)->first();
+        if ($user) {
             return $this->hash->check(
                 $password,
                 $user->password

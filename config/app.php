@@ -163,10 +163,6 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         /*
-         * Package Service Providers...
-         */
-
-        /*
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
@@ -176,10 +172,16 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         /**
+         * Package Service Providers...
+         */
+
+
+        /**
          * Custom Service Providers...
          */
         src\Core\Providers\CoreServiceProvider::class,
-        src\Posts\Providers\PostServiceProvider::class
+        src\Posts\Providers\PostServiceProvider::class,
+        \src\Users\Providers\UserServiceProvider::class,
 
     ],
 
