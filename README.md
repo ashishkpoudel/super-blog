@@ -168,8 +168,8 @@ class GetPaginatedPostHandler
 
 ```
 
-How these `commands` and `queries` are called from our `http controllers` for this project i'm calling them `http handlers`
-Every single action will have one HTTP handlers
+Now these `commands` and `queries` are called from our `http controllers` for this project i'm calling them `http handlers`
+Every action will have one HTTP handler
 
 ```php
 <?php
@@ -211,7 +211,7 @@ final class CreatePostHandler extends BaseHandler
 
 ```
 
-Since our commands will not return any value i have to generate `UUID` outside commands and passing them in. We can choose to do it in other way.
-For more details fell free to browser source code as i have not mentioned everything here. example things inside `/core` module.
+Since our commands will not return any data i have to generate `UUID` outside commands and passing them in while creating any record in database. We can choose to do it in other way.
+For more details feel free to browser the source code as i have not mentioned everything here in intro. There's also alot to explore insde `/core` module(where shared code reside).
 
 I'm still experimenting with this project so things might move here and there a bit.
