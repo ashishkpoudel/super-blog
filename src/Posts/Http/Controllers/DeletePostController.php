@@ -1,13 +1,13 @@
 <?php
 
-namespace src\Posts\Http\Handlers;
+namespace src\Posts\Http\Controllers;
 
-use src\Core\Handlers\BaseHandler;
+use src\Core\Http\Controllers\BaseController;
 use src\Core\Http\Response\DeletedResponse;
 use src\Posts\Commands\DeletePost;
 use src\Posts\ValueObjects\PostId;
 
-final class DeletePostHandler extends BaseHandler
+final class DeletePostController extends BaseController
 {
     public function __invoke(string $postId)
     {

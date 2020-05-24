@@ -1,14 +1,14 @@
 <?php
 
-namespace src\Core\Handlers;
+namespace src\Core\Http\Controllers;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Routing\Controller;
 use src\Core\Bus\Command\CommandBus;
-use src\Core\Bus\Query\QueryBus;
 use src\Core\Bus\Event\EventBus;
+use src\Core\Bus\Query\QueryBus;
 
-abstract class BaseHandler extends Controller
+abstract class BaseController extends Controller
 {
     use AuthorizesRequests;
 

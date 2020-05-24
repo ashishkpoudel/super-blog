@@ -1,8 +1,8 @@
 <?php
 
-namespace src\Posts\Http\Handlers;
+namespace src\Posts\Http\Controllers;
 
-use src\Core\Handlers\BaseHandler;
+use src\Core\Http\Controllers\BaseController;
 use src\Core\Http\Response\UpdatedResponse;
 use src\Posts\Commands\UpdatePost;
 use src\Posts\Http\Requests\PostRequest;
@@ -10,7 +10,7 @@ use src\Posts\Http\Resources\PostResource;
 use src\Posts\Queries\GetPost;
 use src\Posts\ValueObjects\PostId;
 
-final class UpdatePostHandler extends BaseHandler
+final class UpdatePostController extends BaseController
 {
     public function __invoke(string $postId, PostRequest $request)
     {

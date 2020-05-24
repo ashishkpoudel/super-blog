@@ -1,15 +1,15 @@
 <?php
 
-namespace src\Users\Http\Handlers;
+namespace src\Users\Http\Controllers;
 
-use src\Core\Handlers\BaseHandler;
+use src\Core\Http\Controllers\BaseController;
 use src\Core\Http\Response\OkResponse;
 use src\Core\Http\Response\UnauthorizedResponse;
 use src\Users\Http\Requests\LoginRequest;
 use src\Users\Queries\GetUserAuthTokenByEmail;
 use src\Users\Services\AuthService;
 
-class UserLoginHandler extends BaseHandler
+class UserLoginController extends BaseController
 {
     private AuthService $authService;
 

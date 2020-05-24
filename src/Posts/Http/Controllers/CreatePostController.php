@@ -1,17 +1,17 @@
 <?php
 
-namespace src\Posts\Http\Handlers;
+namespace src\Posts\Http\Controllers;
 
+use src\Core\Http\Controllers\BaseController;
 use src\Core\Http\Response\CreatedResponse;
 use src\Posts\ValueObjects\PostId;
-use src\Core\Handlers\BaseHandler;
 use src\Posts\Commands\CreatePost;
 use src\Posts\Http\Requests\PostRequest;
 use src\Posts\Http\Resources\PostResource;
 use src\Posts\Queries\GetPost;
 use src\Users\ValueObjects\UserId;
 
-final class CreatePostHandler extends BaseHandler
+final class CreatePostController extends BaseController
 {
     public function __invoke(PostRequest $request)
     {
